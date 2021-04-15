@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&family=Spartan:wght@500&display=swap");
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+  background: linear-gradient(45deg, rgb(109, 218, 20), aqua);
+}
+.heading {
+  position: absolute;
+  top: 80px;
+  font-family: "Spartan", sans-serif;
+}
+.player-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  padding: 30px;
+  border-radius: 20px;
+  /* box-shadow: 10px 20px 35px rgba(255, 255, 255, 0.479); */
+  opacity: initial;
+  background: linear-gradient(
+    70deg,
+    rgba(255, 225, 225, 0.8),
+    rgba(255, 255, 255, 0.3)
+  );
+  backdrop-filter: blur(2rem);
+}
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#title {
+  margin-top: 5px;
+  z-index: 20;
+}
+#movie {
+  margin-top: -5px;
+  position: relative;
+  left: 50px;
+  text-shadow: 10px 10px 3px rgba(0, 0, 0, 0.5);
+}
+.duration {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.progress-bar {
+  width: 100%;
+  background-color: rgba(173, 173, 173, 0.6);
+  height: 15px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+}
+.progress {
+  width: 10%;
+  background: #ee0979; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #ee0979,
+    #ff6a00
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #ee0979,
+    #ff6a00
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 10px;
+  height: 15px;
+  transition: width 0.1s linear;
+}
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+}
+.fas {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 20px;
+  user-select: none;
+  cursor: pointer;
+}
+.fa-play {
+  font-size: 30px;
+}
+.fa-pause {
+  font-size: 30px;
+}
+.fas:hover {
+  color: black;
+  transition: all 0.2s ease-in;
+}
+
+/* Mobile view */
+
+@media screen and (max-width: 500px) {
+  .player-container {
+    position: absolute;
+    bottom: 20%;
+    width: 75%;
+  }
+}
+
+/* Animation */
+
+.div-main {
+  height: 50px;
+  width: 50px;
+  border: 2px solid black;
+  animation-name: circle2;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-play-state: running;
+  z-index: 4;
+}
+.insider {
+  background: lightcoral;
+  height: 50px;
+  width: 50px;
+  /* text-align: center; */
+  /* position: absolute; */
+  box-shadow: 0px 2px 55px black;
+  /* left: 50%;
+    /* transform: rotateZ(90deg); */
+  /* transform: translate(-50%,-50%); */
+  /* top: 50%; */
+  animation-name: circle;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: running;
+  z-index: 1;
+  margin-bottom: 30px;
+}
+@keyframes circle {
+  0% {
+    background-color: aqua;
+    border-radius: 0;
+    transform: rotate(0deg);
+  }
+  25% {
+    background: yellow;
+    /* border-radius: 30%; */
+  }
+  50% {
+    background: rgb(251, 46, 27);
+    /* border-radius: 50%; */
+  }
+  75% {
+    background: rgb(255, 4, 221);
+    /* border-radius: 50%; */
+  }
+  100% {
+    background-color: rgb(240, 167, 154);
+
+    /* border-radius: 0; */
+    transform: rotate(360deg);
+  }
+}
+@keyframes circle2 {
+  0% {
+    background-color: transparent;
+    border-radius: 0;
+    transform: rotate(-0deg);
+    left: 10;
+    top: 5;
+  }
+  25% {
+    background-color: transparent;
+    /* border-radius: 30%; */
+    left: 80%;
+    top: 5;
+  }
+  50% {
+    background-color: transparent;
+    /* border-radius: 50%; */
+    transform: rotate(360deg);
+    left: 80%;
+    top: 70%;
+  }
+  75% {
+    background-color: transparent;
+    border-radius: 0;
+    left: 10;
+    top: 70%;
+  }
+  100% {
+    background-color: transparent;
+    border-radius: 50px;
+    left: 10;
+    top: 5;
+    transform: rotate(44deg);
+  }
+}
